@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Простейший зашифровыватель</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="modes">
+        <div><input type="radio" id="encrypt" name="mode" checked>Зашифровать</div>
+        <div><input type="radio" id="decrypt" name="mode">Расшифровать</div>
+    </div>
+    <label for="key">Ключ:</label>
+    <input type="text" id="key">
+    <label for="text">Текст:</label>
+    <textarea name="text" id="text" cols="30" rows="10"></textarea>
+    <button id="magic">Зашифровать</button>
+    <script src="index.js"></script>
+    <script>
+        let mode = `encrypt`;
+        let magic_button = document.querySelector(`#magic`);
+        document.querySelector(`#encrypt`).addEventListener(`change`, () => {
+            magic_button.innerHTML = `Зашифровать`;
+            mode = `encrypt`;
+        });
+        document.querySelector(`#decrypt`).addEventListener(`change`, () => {
+            magic_button.innerHTML = `Расшифровать`;
+            mode = `decrypt`;
+        });
+        document.querySelector(`#magic`).addEventListener(`click`, () => {
+            let key = document.querySelector(`#key`);
+            let text = document.querySelector(`#text`);
+            if (mode === `encrypt`) {
+                text.value = Algorithm.encrypt(text.value, key.value);
+            }
+            else {
+                text.value = Algorithm.decrypt(text.value, key.value);
+            }
+        });
+    </script>
+</body>
+</html>
