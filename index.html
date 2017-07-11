@@ -10,12 +10,12 @@
 </head>
 <body>
     <div class="modes">
-        <div><input type="radio" id="encrypt" name="mode" checked>Зашифровать</div>
-        <div><input type="radio" id="decrypt" name="mode">Расшифровать</div>
+        <div><input type="radio" id="encrypt" name="mode" checked><label class="radio" for="encrypt">Зашифровать</label></div>
+        <div><input type="radio" id="decrypt" name="mode"><label class="radio" for="decrypt">Расшифровать</label></div>
     </div>
-    <label for="key">Ключ:</label>
+    <label class="text" for="key">Ключ:</label>
     <input type="text" id="key">
-    <label for="text">Текст:</label>
+    <label class="text" for="text">Текст:</label>
     <textarea name="text" id="text" cols="30" rows="10"></textarea>
     <button id="magic">Зашифровать</button>
     <script src="index.js"></script>
